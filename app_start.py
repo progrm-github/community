@@ -62,7 +62,7 @@ def board_content(articleID):
     return render_template("look.html", result=result)
 
 @app.errorhandler(404)
-def page_not_found(error)
+def page_not_found(error):
      return redirect(request.host_url)
 
 @app.route('/main.html')
