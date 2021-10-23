@@ -114,8 +114,9 @@
         let codingRegex = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})?$/;
         let result = extractStr.match(codingRegex);
         var res = result.split("=");
-        var embeddedUrl = "https://www.youtube.com/embed/"+res[1];
-        document.getElementById("data").innerHTML = res;
+        var embeddedUrl = '<iframe width="560" height="315" src="//www.youtube.com/embed/' 
+    + res[1] + '" frameborder="0" allowfullscreen></iframe>';
+        document.getElementById("data").innerHTML = embeddedUrl;
     }
 </script>
 </body>
