@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect
-import pymysql
+import sqlite3
 from random import *
 from flask import request
 import os
 
-db = pymysql.connect(host="db4free.net", user="kuuhaku", passwd="jmjmjm0730", db="kuuhaku", charset="utf8")
+db = sqlite3.connect("db.db")
 cur = db.cursor()
 
 app = Flask(__name__)
