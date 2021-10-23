@@ -121,7 +121,7 @@
     let after = document.getElementById(data);
     let extractStr = after;
     let codingRegex = /^(?:https?:\/\/)?(?:youtu\.be\/)((\w|-){11})?$/g;
-    let result = extractStr.match(codingRegex) + '';
+    let result = extractStr.match(codingRegex);
     var res = result.split("/");
     var embeddedUrl = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' 
 + res[3] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
