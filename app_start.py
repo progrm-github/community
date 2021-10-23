@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import pymysql
 from random import *
 from flask import request
+import os
 
 db = pymysql.connect(host="db4free.net", user="kuuhaku", passwd="jmjmjm0730", db="kuuhaku", charset="utf8")
 cur = db.cursor()
@@ -76,4 +77,5 @@ def delete(id):
     
 
 if __name__ == '__main__':
-    app.run(port=80)
+    port = int(os.environ.get("PORT", 5000")
+    app.run(host="0.0.0.0", port=port)
