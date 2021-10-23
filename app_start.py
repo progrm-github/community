@@ -4,7 +4,7 @@ from random import *
 from flask import request
 import os
 
-db = sqlite3.connect("db.db")
+db = sqlite3.connect("db.db",check_same_thread=False)
 cur = db.cursor()
 
 app = Flask(__name__)
