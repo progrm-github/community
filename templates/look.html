@@ -114,9 +114,9 @@
     let extractStr1 = "{{ result[0][4] }}";
     let codingRegex1 = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})?$/g;
     let result1 = extractStr1.match(codingRegex1) + '';
-    var res1 = result1.split("/");
+    var res1 = result1.split("=);
     var embeddedUrl1 = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' 
-+ res1[3] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
++ res1[1] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     document.getElementById("data").innerHTML = embeddedUrl1;
     let after = document.getElementById(data);
     let extractStr = after;
