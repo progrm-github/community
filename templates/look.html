@@ -87,8 +87,12 @@
     </div>
 <script>
     var ac = '{{ result[0][4] }}';
-    let hhh = ac;
-    document.getElementById("data").innerHTML = hhh;
+    let replaced_str = ac.replace('&quot;', '"');
+    let replaced_str1 = replaced_str.replace('&amp;', '&');
+    let replaced_str2 = replaced_str1.replace('&lt;', '<');
+    let replaced_str3 = replaced_str2.replace('&gt;', '>');
+    let replaced_str4 = replaced_str3.replace('&nbsp;', ' ');
+    document.getElementById("data").innerHTML = replaced_str4;
     </script>
     <div id="disqus_thread"></div>
 <script>
