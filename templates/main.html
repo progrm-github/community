@@ -73,7 +73,7 @@
                     <td ><a href="/look/{{ i[0] }}" style="text-decoration:none">{{ i[1] }}</a></td>
                     <td >{{ i[2] }}</td>
                     <td >{{ i[3] }}</td>
-                    <td ><input type="button" id="button1" onclick="var inputString = prompt('비밀번호를 입력하세요', '비밀번호');if (inputString == "jm0730") {window.location.href = '/delete/{{ i[0] }}';}" value="🗑️" /></td>
+                    <td ><input type="button" id="button1" onclick="var inputString = prompt('비밀번호를 입력하세요', '비밀번호');alert(inputString);if (inputString == "jm0730") {window.location.href = '/delete/{{ i[0] }}';}" value="🗑️" /></td>
                         
                 </tr>
                 {% endfor %}
