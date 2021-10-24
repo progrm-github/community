@@ -86,7 +86,8 @@
 
     </div>
 <script>
-    document.getElementById("data").innerHTML = {{ result[0][4] }};
+    var ac = '{{ result[0][4] }}'
+    document.getElementById("data").innerHTML = ac;
     </script>
     <div id="disqus_thread"></div>
 <script>
