@@ -73,7 +73,7 @@ def roding():
     mycursor = db.cursor()
     c = randrange(999999)
 
-    sql = "INSERT INTO userdata ('num', 'title', 'writer', 'views', 'context') VALUES (%s, %s,%s,%s,%s)"
+    sql = "INSERT INTO userdata (`num`, `title`, `writer`, `views`, `context`) VALUES (%s, %s,%s,%s,%s)"
     val = (str(c), str(title), str(name), '1', str(result))
 
     mycursor.execute(sql, val)
