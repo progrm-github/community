@@ -7,6 +7,7 @@ from flask_dropzone import Dropzone
 from werkzeug.utils import secure_filename
 from flask import send_file
 import glob
+import random
 
 db = sqlite3.connect("db.db",check_same_thread=False)
 cur = db.cursor()
@@ -27,6 +28,9 @@ def index():
     file_list = os.listdir(path_dir)
     fileEx = r'.png'
     file_list = [file for file in os.listdir(path_dir) if file.endswith(fileEx)]
+    
+    
+    random.shuffle(file_list)
     
 
     return render_template('main.html', value=data_list, imagelink=request.host_url + 'image/' + file_list[0], imagelink1=request.host_url + 'image/' + file_list[1], imagelink2=request.host_url + 'image/' + file_list[2], imagelink3=request.host_url + 'image/' + file_list[3], imagelink4=request.host_url + 'image/' + file_list[4])
