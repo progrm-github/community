@@ -46,6 +46,62 @@
         .up2:hover{
             background-color: rgba(0, 0, 0, 0.178);
         }
+          /* For Mobile Portrait View */
+        @media screen
+        and (max-device-width: 480px)
+        and (orientation: portrait){
+        #data{
+            position: relative;
+            top: 70%;
+            left: 5%;
+            width: 350px;
+            height: 500px;
+            text-align: left;
+            word-wrap:break-word;
+        }
+        }
+        
+        /* For Mobile Landscape View */
+        @media screen
+        and (max-device-width: 640px)
+        and (orientation: landscape){
+        #data{
+            position: relative;
+            top: 70%;
+            left: 5%;
+            width: 350px;
+            height: 500px;
+            text-align: left;
+            word-wrap:break-word;
+        }
+        }
+        
+        /* For Mobile Phones Portrait or Landscape View */
+        @media screen
+        and (max-device-width: 640px){
+        #data{
+            position: relative;
+            top: 70%;
+            left: 5%;
+            width: 350px;
+            height: 500px;
+            text-align: left;
+            word-wrap:break-word;
+        }
+        }
+        @media (min-width: 1281px) {
+        #data{
+            position: relative;
+            top: 70%;
+            left: 5%;
+            width: 700px;
+            height: 500px;
+            text-align: left;
+            word-wrap:break-word;
+        }
+
+        }
+
         #name{
             position: relative;
             top: 50%;
@@ -60,15 +116,6 @@
             width: 350px;
         }
 
-        #data{
-            position: relative;
-            top: 70%;
-            left: 5%;
-            width: 350px;
-            height: 500px;
-            text-align: left;
-            word-wrap:break-word;
-        }
 </style>
 <body>
 
@@ -85,7 +132,6 @@
             <input style="float: left" type="text" id="name"name="name" class="form-control text-center" placeholder="닉네임"></input>
             <input style="float: down" type="text" id="title"name="title" class="form-control text-center" placeholder="제목"></input>
             <input class="form-control text-center" type="text" id="data" name="result" placeholder="내용"></input>
-        
         </div>
         <center>
             <br><br>

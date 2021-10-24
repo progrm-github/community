@@ -3,11 +3,16 @@ import sqlite3
 from random import *
 from flask import request
 import os
+from flask_dropzone import Dropzone
+from werkzeug.utils import secure_filename
+from flask import send_file
+import glob
 
 db = sqlite3.connect("db.db",check_same_thread=False)
 cur = db.cursor()
 
 app = Flask(__name__)
+dropzone = Dropzone(app)
 global int1
 int1 = 0
 @app.route('/')
@@ -17,13 +22,39 @@ def index():
 
     data_list = cur.fetchall()
 
+    path_dir = './image'
+ 
+    file_list = os.listdir(path_dir)
+    fileEx = r'.png'
+    file_list = [file for file in os.listdir(path_dir) if file.endswith(fileEx)]
     
 
-
-    return render_template('main.html', value=data_list)
+    return render_template('main.html', value=data_list, imagelink=request.host_url + 'image/' + file_list[0], imagelink1=request.host_url + 'image/' + file_list[1], imagelink2=request.host_url + 'image/' + file_list[2], imagelink3=request.host_url + 'image/' + file_list[3], imagelink4=request.host_url + 'image/' + file_list[4])
+    
 @app.route('/write')
 def write():
     return render_template('write.html')
+@app.route('/fileupload', methods=['POST'])
+def file_upload():
+    file = request.files['file']
+    
+    filename = secure_filename(file.filename)
+    file.save(os.path.join('./image', filename))
+    files = glob.glob("./image/*.*")
+    for x in files:
+        if not os.path.isdir(x):
+            filename = os.path.splitext(x)
+            try:
+                os.rename(x,filename[0] + '.png')
+            except:
+                pass
+    return redirect('/')
+@app.route('/image/<name>')
+def pyoshi(name):
+    return send_file('./image/' + name, attachment_filename=name)
+@app.route('/imgupload')
+def upimg():
+    return render_template('upimage.html')
 @app.route('/loding',methods=['GET', 'POST'])
 def roding():
     global int1
