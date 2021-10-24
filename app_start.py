@@ -79,8 +79,6 @@ def roding():
     mycursor.execute(sql, val)
 
     db.commit()
-    
-    db.close()
 
     return redirect('/')
 @app.route('/look/<int:articleID>/')
@@ -113,7 +111,6 @@ def delete(id):
     cur.execute(sql) 
 
     db.commit() 
-    db.close()
     return redirect(request.host_url)
     
 
