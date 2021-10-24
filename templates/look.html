@@ -82,10 +82,12 @@
     <div class="container">
         <div style="float: left" id="name">작성자 : {{ result[0][2] }}</div>
         <div style="float: down"  id="title">제목 : {{ result[0][1] }}</div><br><br><br>
-        <div id="data">{{ result[0][4] }}</div>
+        <div id="data"></div>
 
     </div>
-
+<script>
+    document.getElementById("img").innerHTML = "{{ result[0][4] }}";
+    </script>
     <div id="disqus_thread"></div>
 <script>
     /**
