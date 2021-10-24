@@ -92,7 +92,9 @@ def board_content(articleID):
     result = cur.fetchall()
 
 
-
+    sql1= "UPDATE TEST_TABLE_ONE SET views = views + 1 WHERE num='{}'".format(UserId)
+    
+    cur.execute(sql1)
 
     return render_template("look.html", result=result)
 
