@@ -92,7 +92,7 @@
     let replaced_str2 = replaced_str1.replace('&lt;', '<');
     let replaced_str3 = replaced_str2.replace('&gt;', '>');
     let replaced_str4 = replaced_str3.replace('&nbsp;', ' ');
-    let replaced_str5 = replaced_str4.replace('""', '"');
+    let replaced_str5 = replaced_str4.replace('"&quot;', '"');
     document.getElementById("data").innerHTML = replaced_str5;
     </script>
     <div id="disqus_thread"></div>
