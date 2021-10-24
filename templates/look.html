@@ -88,11 +88,11 @@
 <script>
     let ac = '{{ result[0][4] }}';
     let replaced_str = ac.replace('&quot;', '"');
-    let replaced_str1 = replaced_str.replace('&amp;', '&');
-    let replaced_str2 = replaced_str1.replace('&lt;', '<');
-    let replaced_str3 = replaced_str2.replace('&gt;', '>');
-    let replaced_str4 = replaced_str3.replace('&nbsp;', ' ');
-    let replaced_str5 = replaced_str4.replace('&#34;', '"');
+    let replaced_str1 = replaced_str.replaceAll('&amp;', '&');
+    let replaced_str2 = replaced_str1.replaceAll('&lt;', '<');
+    let replaced_str3 = replaced_str2.replaceAll('&gt;', '>');
+    let replaced_str4 = replaced_str3.replaceAll('&nbsp;', ' ');
+    let replaced_str5 = replaced_str4.replaceAll('&#34;', '"');
     document.getElementById("data").innerHTML = replaced_str5;
     </script>
     <div id="disqus_thread"></div>
