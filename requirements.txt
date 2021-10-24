@@ -1,3 +1,3 @@
 Flask
-pymysql
+pysqlite3
 Flask-Dropzone
