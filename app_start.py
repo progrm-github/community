@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-import sqlite3
+import pymysql
 from random import *
 from flask import request
 import os
@@ -9,7 +9,7 @@ from flask import send_file
 import glob
 import random
 
-db = sqlite3.connect("db.db",check_same_thread=False)
+db = pymysql.connect(host="us-cdbr-east-04.cleardb.com", user="b796fc40e32603", passwd="04c9e03e", db="heroku_759e2b81d0ef842", charset="utf8")
 cur = db.cursor()
 
 app = Flask(__name__)
@@ -73,7 +73,7 @@ def roding():
     mycursor = db.cursor()
     c = randrange(999999)
 
-    sql = "INSERT INTO userdata ('num', 'title', 'writer', 'views', 'context') VALUES (?,?,?,?,?)"
+    sql = "INSERT INTO userdata ('num', 'title', 'writer', 'views', 'context') VALUES (%s,%s,%s,%s,%s)"
     val = (str(c), str(title), str(name), '1', str(result))
 
     mycursor.execute(sql, val)
