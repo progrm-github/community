@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://1community.pythonanywhere.com/">
+        <meta property="og:title" content="메인 페이지 | Community">
+        <meta property="og:description" content="Main Page - Community">
+        <meta property="og:image" content="https://i.ibb.co/H2fN4mV/unnamed.jpg">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Community</title>
@@ -35,8 +40,8 @@
             font-size: 20px;
             line-height: 60px;
             text-align: center;
-            
-            
+
+
         }
         .up21{
             color: black;
@@ -74,7 +79,7 @@
                     <td >{{ i[2] }}</td>
                     <td >{{ i[3] }}</td>
                     <td ><button onclick="jikkou('{{ i[0] }}');">🗑️</button></td>
-                        
+
                 </tr>
                 {% endfor %}
             </tbody>
@@ -83,8 +88,8 @@
         <a href="./write">새로운 글 쓰기</a>
 
     <br><br><br><br><br><br>랜덤 이미지<br><br>
-    
-        
+
+
     <div id="img"></div><br><br>
     <a href="./imgupload">사진 업로드하기</a><br><br><br><br>
 </div>
@@ -97,7 +102,7 @@
                 }
             }
         </script>
-                
+
 
         <script>
             var imgl = "{{ imagelink }}";
