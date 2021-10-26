@@ -24,24 +24,45 @@ def index():
     data_list = cur.fetchall()
 
     path_dir = './image'
- 
+
     file_list = os.listdir(path_dir)
     fileEx = r'.png'
     file_list = [file for file in os.listdir(path_dir) if file.endswith(fileEx)]
-    
-    
+
+
     random.shuffle(file_list)
-    
+
 
     return render_template('main.html', value=data_list, imagelink=request.host_url + 'image/' + file_list[0], imagelink1=request.host_url + 'image/' + file_list[1], imagelink2=request.host_url + 'image/' + file_list[2], imagelink3=request.host_url + 'image/' + file_list[3], imagelink4=request.host_url + 'image/' + file_list[4])
-    
+
+
+@app.route('/admin')
+def indexadmin():
+    sql = "SELECT * from userdata"
+    cur.execute(sql)
+
+    data_list = cur.fetchall()
+
+    path_dir = './image'
+
+    file_list = os.listdir(path_dir)
+    fileEx = r'.png'
+    file_list = [file for file in os.listdir(path_dir) if file.endswith(fileEx)]
+
+
+    random.shuffle(file_list)
+
+
+    return render_template('admin.html', value=data_list, imagelink=request.host_url + 'image/' + file_list[0], imagelink1=request.host_url + 'image/' + file_list[1], imagelink2=request.host_url + 'image/' + file_list[2], imagelink3=request.host_url + 'image/' + file_list[3], imagelink4=request.host_url + 'image/' + file_list[4])
+
+
 @app.route('/write')
 def write():
     return render_template('write.html')
 @app.route('/fileupload', methods=['POST'])
 def file_upload():
     file = request.files['file']
-    
+
     filename = secure_filename(file.filename)
     file.save(os.path.join('./image', filename))
     files = glob.glob("./image/*.*")
@@ -92,7 +113,7 @@ def board_content(articleID):
 
 
     sql1= "UPDATE userdata SET views = views + 1 WHERE num='{}'".format(UserId)
-    
+
     cur.execute(sql1)
 
     return render_template("look.html", result=result)
@@ -109,11 +130,11 @@ def gomain():
 def delete(id):
     sql = "DELETE FROM userdata WHERE num = {}".format(id)
 
-    cur.execute(sql) 
+    cur.execute(sql)
 
     db.commit()
     return redirect(request.host_url)
-    
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
